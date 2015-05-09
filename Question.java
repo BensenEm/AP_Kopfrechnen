@@ -25,40 +25,69 @@ public class Question {
 		Random ran = new Random();
 		switch (type) {
 		case 1:
-			zahl1 = ran.nextFloat() * (9) + 1;
+			zahl1 = ran.nextFloat() * (99) + 1;
 			zahl1 = Math.round(zahl1 * 10) / 10f;
 			zahl2 = ran.nextFloat() * (9) + 1;
 			zahl2 = Math.round(zahl2 * 10) / 10f;
 			break;
 		case 2:
-			//Generiert Zahlen wie 1'000er 10'000, 100'000er
-			int pot=ran.nextInt(4)+1;
-			//Erzeugt Float zwischen 1 und 100
-			zahl1= (ran.nextFloat()*(99)+1)/10f;
-			//Erweitert den Float um die pot variable
-			zahl1= zahl1* (float) Math.pow(10,pot);
+			// Generiert Zahlen wie 1'000er 10'000, 100'000er
+			int pot = ran.nextInt(4) + 1;
+			// Erzeugt Float zwischen 1 und 100
+			// zahl1 = (ran.nextFloat() * (99) + 1) / 10f;
+			zahl1 = (ran.nextInt(99) + 1);
+			// Erweitert den Float um die pot variable
+			// *****AUSGESCHALTET*******zahl1= zahl1* (float) Math.pow(10,pot);
 			// Sorgt dafür dass glatte Zahlen (%100=0) entstehen
-			zahl1= (int) zahl1*100;
-			//Generiert %Zahl in 0.25 Schritten
-			zahl2 = (float)(ran.nextInt(399)+1)/4;
+			zahl1 = (int) zahl1 * 1000000;
+			// Generiert %Zahl in 0.25 Schritten****** GEÄNDERT VON 399+1/4
+			// zahl2 = (float)(ran.nextInt(399)+1)/4
+			zahl2 = ran.nextInt(19) * 5;
+
 			break;
-		
-		//Identisch mit Case2
+
+		// Identisch mit Case2
 		case 3:
-			pot=ran.nextInt(4)+1;
-			zahl1= (ran.nextFloat()*(99)+1)/10f;
-			zahl1= zahl1* (float) Math.pow(10,pot);
-			zahl1= (int) zahl1*100;
-			zahl2 = (float)(ran.nextInt(399)+1)/4;
+			// Generiert Zahlen wie 1'000er 10'000, 100'000er
+			pot = ran.nextInt(4) + 1;
+			// Erzeugt Float zwischen 1 und 100
+			// zahl1 = (ran.nextFloat() * (99) + 1) / 10f;
+			zahl1 = (ran.nextInt(99) + 1);
+			// Erweitert den Float um die pot variable
+			// *****AUSGESCHALTET*******zahl1= zahl1* (float) Math.pow(10,pot);
+			// Sorgt dafür dass glatte Zahlen (%100=0) entstehen
+			zahl1 = (int) zahl1 * 1000000;
+			// Generiert %Zahl in 0.25 Schritten****** GEÄNDERT VON 399+1/4
+			// zahl2 = (float)(ran.nextInt(399)+1)/4
+			zahl2 = ran.nextInt(19) * 5;
+
 			break;
-		//Identisch mit Case2
+		// Identisch mit Case2
 		case 4:
-			pot=ran.nextInt(4)+1;
-			zahl1= (ran.nextFloat()*(99)+1)/10f;
-			zahl1= zahl1* (float) Math.pow(10,pot);
-			zahl1= (int) zahl1*100;
-			zahl2 = (float)(ran.nextInt(399)+1)/4;
+			// Generiert Zahlen wie 1'000er 10'000, 100'000er
+			pot = ran.nextInt(4) + 1;
+			// Erzeugt Float zwischen 1 und 100
+			// zahl1 = (ran.nextFloat() * (99) + 1) / 10f;
+			zahl1 = (ran.nextInt(99) + 1);
+			// Erweitert den Float um die pot variable
+			// *****AUSGESCHALTET*******zahl1= zahl1* (float) Math.pow(10,pot);
+			// Sorgt dafür dass glatte Zahlen (%100=0) entstehen
+			zahl1 = (int) zahl1 * 1000000;
+			// Generiert %Zahl in 0.25 Schritten****** GEÄNDERT VON 399+1/4
+			// zahl2 = (float)(ran.nextInt(399)+1)/4
+			zahl2 = ran.nextInt(19) * 5;
+
 			break;
+
+			
+			
+			//		case 4:
+//			pot = ran.nextInt(4) + 1;
+//			zahl1 = (ran.nextFloat() * (99) + 1) / 10f;
+//			zahl1 = zahl1 * (float) Math.pow(10, pot);
+//			zahl1 = (int) zahl1 * 100;
+//			zahl2 = (float) (ran.nextInt(399) + 1) / 4;
+//			break;
 		}
 	}
 
@@ -70,10 +99,14 @@ public class Question {
 		if (type == 1) {
 			System.out.println("Teile " + zahl1 + " durch " + zahl2 + " !");
 			Scanner sq = new Scanner(System.in);
-			
-			try{answer = sq.nextFloat();}
-			catch(InputMismatchException e){System.out.println("Dezimalzahlen nur mit KOMMA bitte");sq.next();
-			answer= sq.nextFloat();}			
+
+			try {
+				answer = sq.nextFloat();
+			} catch (InputMismatchException e) {
+				System.out.println("Dezimalzahlen nur mit KOMMA bitte");
+				sq.next();
+				answer = sq.nextFloat();
+			}
 			return answer;
 		}
 
@@ -87,8 +120,13 @@ public class Question {
 			System.out.print("Wieviel ist:         " + output + d[type - 2]
 					+ zahl2 + "% ?   ");
 			Scanner sc = new Scanner(System.in);
-			try{answer = sc.nextFloat();}
-			catch(InputMismatchException e){System.out.println("Dezimalzahlen nur mit KOMMA bitte"); sc.next(); answer= sc.nextFloat();}
+			try {
+				answer = sc.nextFloat();
+			} catch (InputMismatchException e) {
+				System.out.println("Dezimalzahlen nur mit KOMMA bitte");
+				sc.next();
+				answer = sc.nextFloat();
+			}
 			return answer;
 		}
 	}
@@ -102,14 +140,14 @@ public class Question {
 			result = zahl1 / zahl2;
 			return result;
 		case 2:
-			result = zahl1 * (1 - zahl2/100f);
+			result = zahl1 * (1 - zahl2 / 100f);
 			return result;
 
 		case 3:
-			result = zahl1 * (1 + zahl2/100f);
+			result = zahl1 * (1 + zahl2 / 100f);
 			return result;
 		case 4:
-			result = zahl1 * zahl2/100f;
+			result = zahl1 * zahl2 / 100f;
 			return result;
 		default:
 			return 0.0f;
@@ -118,20 +156,20 @@ public class Question {
 
 	// Kontrolliert Genauigkeit der Antwort
 	public boolean compare(float ans, float res, int skill) {
-			if ((skill==1)&& (ans > 0.995f * res) && (ans < 1.005f * res))
-				return true;
-	
-			if ((skill==2)&&(ans > 0.98 * res) && (ans < 1.02 * res))
-				return true;
-		
-			if ((skill==3)&& (ans > 0.95 * res) && (ans < 1.05 * res))
-				return true;
+		if ((skill == 1) && (ans > 0.995f * res) && (ans < 1.005f * res))
+			return true;
 
-			if ((skill==4)&&(ans > 0.90 * res) && (ans < 1.1 * res))
-				return true;
+		if ((skill == 2) && (ans > 0.98 * res) && (ans < 1.02 * res))
+			return true;
 
-			if ((skill>4)&&(ans > 0.80 * res) && (ans < 1.2 * res))
-				return true;
-			return false;
-		}
+		if ((skill == 3) && (ans > 0.95 * res) && (ans < 1.05 * res))
+			return true;
+
+		if ((skill == 4) && (ans > 0.90 * res) && (ans < 1.1 * res))
+			return true;
+
+		if ((skill > 4) && (ans > 0.80 * res) && (ans < 1.2 * res))
+			return true;
+		return false;
 	}
+}
